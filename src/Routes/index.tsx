@@ -6,6 +6,16 @@ const Routes = () => {
     {
       path: "/",
       element: <App />,
+      children: [
+        {
+          path: "/:mailBoxId",
+          element: <p>Unknown</p>,
+        },
+      ],
+    },
+    {
+      path: "error",
+      element: <p>Error</p>,
     },
   ]);
   return <RouterProvider router={routes} />;
