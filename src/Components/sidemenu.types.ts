@@ -2,6 +2,7 @@ type MenuItem = {
   id: Lowercase<string>;
   name: string;
 };
-export type Sidemenu = {
+
+export type SidemenuType = {
   menuItems: MenuItem[];
 };
