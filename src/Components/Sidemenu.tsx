@@ -1,6 +1,8 @@
 import {PropsWithChildren} from "react";
-import {Sidemenu} from "./sidemenu.types";
+import {SidemenuType} from "./sidemenu.types";
 import {GiHamburgerMenu} from "react-icons/gi";
+import {Link} from "react-router-dom";
+
 const Sidemenu = ({children}: PropsWithChildren) => {
   return (
     <div className="drawer md:drawer-open">
@@ -24,17 +26,22 @@ const SidemenuContent = ({children}: PropsWithChildren) => {
   );
 };
 
-const SidemenuList = ({menuItems}: Sidemenu) => {
+const SidemenuList = ({menuItems}: SidemenuType) => {
   return (
     <div className="drawer-side">
       <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
       <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
         {menuItems.map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <Link to={`/${item.id}`} key={item.id}>
+            {item.name}
+          </Link>
         ))}
       </ul>
     </div>
   );
 };
+
+Sidemenu.Content = SidemenuContent;
+Sidemenu.List = SidemenuList;
 
 export default Sidemenu;
