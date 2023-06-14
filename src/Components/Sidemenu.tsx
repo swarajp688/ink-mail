@@ -24,4 +24,17 @@ const SidemenuContent = ({children}: PropsWithChildren) => {
   );
 };
 
+const SidemenuList = ({menuItems}: Sidemenu) => {
+  return (
+    <div className="drawer-side">
+      <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+      <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+        {menuItems.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 export default Sidemenu;
