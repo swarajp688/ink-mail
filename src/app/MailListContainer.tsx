@@ -17,6 +17,9 @@ const MailListContainer = () => {
   );
 
   useEffect(() => {
+    if (!params.get("query") && searchText) {
+      setSearchText("");
+    }
     dispatch(setVisibleEmails({tag: mailBoxId, query: searchText}));
   }, [mailBoxId, emails, searchText]);
 
