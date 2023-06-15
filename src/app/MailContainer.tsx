@@ -7,15 +7,18 @@ import {RootState} from "../Redux/store";
 
 const MailContainer = () => {
   const {mailBoxId} = useParams();
-  const {visibleEmails} = useSelector((state: RootState) => state);
+  const {visibleEmails, emails} = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setVisibleEmails(mailBoxId));
-    console.log(visibleEmails);
-  }, [mailBoxId]);
+  }, [mailBoxId, emails]);
 
-  return <div>{mailBoxId && <MailTable mails={visibleEmails} />}</div>;
+  return (
+    <div className="w-full h-full">
+      {mailBoxId && <MailTable mails={visibleEmails} />}
+    </div>
+  );
 };
 
 export default MailContainer;
