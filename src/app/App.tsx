@@ -44,7 +44,7 @@ function App() {
       <Sidemenu>
         <Sidemenu.List menuItems={menuItems}></Sidemenu.List>
         <Sidemenu.Content>
-          <div className="w-full h-full p-6 bg-slate-100">
+          <div className="h-full p-6">
             <Outlet />
           </div>
         </Sidemenu.Content>

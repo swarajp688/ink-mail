@@ -1,18 +1,19 @@
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {setVisibleEmails} from "../Redux/reducer";
 import {ReduxStateType} from "../Redux/reduxState.type";
-import {RootState} from "../Redux/store";
 
 const MailTable = ({mails}: {mails: ReduxStateType["visibleEmails"]}) => {
   return (
-    <table className="table max-w-7xl">
+    <table className="table bg-slate-100">
       <tbody>
         {mails.map((email) => (
-          <tr key={email.id} className="hover:bg-white hover:shadow-sm">
-            <td>
-              <p className="max-w-[300px] truncate">{email.subject}</p>
-              <p className="max-w-screen-md truncate">{email.body}</p>
+          <tr
+            key={email.id}
+            className="hover:bg-slate-50 hover:shadow-md hover:rounded-sm"
+          >
+            <td className="max-w-5xl">
+              <p className="truncate mr-10 inline-block w-1/5">
+                {email.subject}
+              </p>
+              <p className="truncate w-3/4 inline-block">{email.body}</p>
             </td>
           </tr>
         ))}

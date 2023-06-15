@@ -5,8 +5,8 @@ import {NavLink} from "react-router-dom";
 
 const Sidemenu = ({children}: PropsWithChildren) => {
   return (
-    <div className="drawer md:drawer-open">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+    <div className="drawer drawer-mobile lg:drawer-open">
+      <input id="side-menu" type="checkbox" className="drawer-toggle" />
       {children}
     </div>
   );
@@ -14,9 +14,9 @@ const Sidemenu = ({children}: PropsWithChildren) => {
 
 const SidemenuContent = ({children}: PropsWithChildren) => {
   return (
-    <div className="drawer-content flex flex-col">
+    <div className="drawer-content">
       <label
-        htmlFor="my-drawer-2"
+        htmlFor="side-menu"
         className="btn btn-circle btn-sm max-w-[50px] drawer-button lg:hidden"
       >
         <GiHamburgerMenu />
@@ -28,9 +28,9 @@ const SidemenuContent = ({children}: PropsWithChildren) => {
 
 const SidemenuList = ({menuItems}: SidemenuType) => {
   return (
-    <div className="drawer-side z-50">
-      <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-      <ul className="menu p-4 w-80 sm:w-48 h-full text-base-content bg-white">
+    <div className="drawer-side no-scrollbar z-50">
+      <label htmlFor="side-menu" className="drawer-overlay"></label>
+      <ul className="h-full flex flex-col p-4 w-80 sm:w-48 bg-base-200">
         {menuItems.map((item) => (
           <NavLink
             className={({isActive}) =>
