@@ -2,6 +2,7 @@ import {RouterProvider, createBrowserRouter} from "react-router-dom";
 import App from "../app/App";
 import MailContainer from "../app/MailContainer";
 import MailListContainer from "../app/MailListContainer";
+import Error from "../Components/Error";
 
 const Routes = () => {
   const routes = createBrowserRouter([
@@ -21,7 +22,7 @@ const Routes = () => {
     },
     {
       path: "error",
-      element: <p>Error</p>,
+      element: <Error />,
     },
   ]);
   return <RouterProvider router={routes} />;
