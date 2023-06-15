@@ -28,7 +28,7 @@ const SidemenuContent = ({children}: PropsWithChildren) => {
 
 const SidemenuList = ({menuItems}: SidemenuType) => {
   return (
-    <div className="drawer-side">
+    <div className="drawer-side z-50">
       <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
       <ul className="menu p-4 w-80 sm:w-48 h-full text-base-content bg-white">
         {menuItems.map((item) => (
