@@ -1,5 +1,6 @@
 import {RouterProvider, createBrowserRouter} from "react-router-dom";
-import App from "../App";
+import App from "../app/App";
+import MailContainer from "../app/MailContainer";
 
 const Routes = () => {
   const routes = createBrowserRouter([
@@ -9,7 +10,7 @@ const Routes = () => {
       children: [
         {
           path: "/:mailBoxId",
-          element: <p>Unknown</p>,
+          element: <MailContainer />,
         },
       ],
     },
