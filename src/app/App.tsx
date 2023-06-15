@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Navigate, Outlet, useParams} from "react-router";
 import Sidemenu from "../Components/Sidemenu";
 import {SidemenuType} from "../Components/sidemenu.types";
@@ -9,6 +9,8 @@ import {BsTrash} from "react-icons/bs";
 import {RiSpam2Line} from "react-icons/ri";
 import {MdOutlineDrafts, MdOutlineMarkEmailRead} from "react-icons/md";
 import {validRoutes} from "../Routes/validRoutes";
+import {RootState} from "../Redux/store";
+import Loader from "../Components/Loader";
 
 const getMenuItems = (): SidemenuType["menuItems"] => {
   return [
@@ -44,6 +46,7 @@ function App() {
   const menuItems = getMenuItems();
   const {mailBoxId} = useParams();
   const dispatch = useDispatch();
+  const loading = useSelector((state: RootState) => state.loading);
 
   useEffect(() => {
     dispatch({type: sagaActions.FETCH_EMAIL});
@@ -62,9 +65,7 @@ function App() {
       <Sidemenu>
         <Sidemenu.List menuItems={menuItems} />
         <Sidemenu.Content>
-          <div className="h-full p-6">
-            <Outlet />
-          </div>
+          <div className="h-full p-6">{loading ? <Loader /> : <Outlet />}</div>
         </Sidemenu.Content>
       </Sidemenu>
     </div>
