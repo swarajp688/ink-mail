@@ -8,4 +8,5 @@ export type EmailType = {
   subject: string;
   body: string;
   tag: string;
+  userId: number;
 };
