@@ -1,11 +1,11 @@
-import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import {RouterProvider, createHashRouter} from "react-router-dom";
 import App from "../app/App";
 import MailContainer from "../app/MailContainer";
 import MailListContainer from "../app/MailListContainer";
 import Error from "../Components/Error";
 
 const Routes = () => {
-  const routes = createBrowserRouter([
+  const routes = createHashRouter([
     {
       path: "/",
       element: <App />,
