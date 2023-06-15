@@ -13,12 +13,23 @@ const emailSlice = createSlice({
   reducers: {
     setEmail: (state, action) => {
       state.emails = action.payload;
-      state.visibleEmails = action.payload;
-      state.loading = false;
+    },
+    setVisibleEmails: (state, action) => {
+      if (action.payload === "all") {
+        state.visibleEmails = state.emails;
+      } else {
+        const filteredData = state.emails.filter(
+          (email) => email.tag === action.payload,
+        );
+        state.visibleEmails = filteredData;
+      }
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
     },
   },
 });
 
-export const {setEmail} = emailSlice.actions;
+export const {setEmail, setVisibleEmails, setLoading} = emailSlice.actions;
 
 export default emailSlice.reducer;
