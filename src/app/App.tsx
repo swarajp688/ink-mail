@@ -50,7 +50,7 @@ function App() {
   return (
     <div>
       <Sidemenu>
-        <Sidemenu.List menuItems={menuItems}></Sidemenu.List>
+        <Sidemenu.List menuItems={menuItems} />
         <Sidemenu.Content>
           <div className="h-full p-6">
             <Outlet />

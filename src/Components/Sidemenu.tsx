@@ -31,6 +31,11 @@ const SidemenuList = ({menuItems}: SidemenuType) => {
     <div className="drawer-side no-scrollbar z-50">
       <label htmlFor="side-menu" className="drawer-overlay"></label>
       <ul className="h-full flex flex-col p-4 w-80 sm:w-48 bg-base-200">
+        <li className="text-center mb-9 mt-6">
+          <strong>
+            <h1 className="bg-slate-200 p-4 rounded-md">Ink - Mail</h1>
+          </strong>
+        </li>
         {menuItems.map((item) => (
           <NavLink
             className={({isActive}) =>
