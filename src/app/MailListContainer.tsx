@@ -8,7 +8,7 @@ import {RootState} from "../Redux/store";
 import SearchBar from "./SearchBar";
 
 const MailListContainer = () => {
-  const {mailBoxId} = useParams();
+  const {tagId} = useParams();
   const {visibleEmails, emails} = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
   const [params] = useSearchParams();
@@ -20,13 +20,13 @@ const MailListContainer = () => {
     if (!params.get("query") && searchText) {
       setSearchText("");
     }
-    dispatch(setVisibleEmails({tag: mailBoxId, query: searchText}));
-  }, [mailBoxId, emails, searchText]);
+    dispatch(setVisibleEmails({tag: tagId, query: searchText}));
+  }, [tagId, emails, searchText]);
 
   return (
     <div className="w-full h-full">
       <SearchBar searchText={searchText} setSearchText={setSearchText} />
-      {mailBoxId && <MailTable mails={visibleEmails} />}
+      {tagId && <MailTable mails={visibleEmails} />}
     </div>
   );
 };

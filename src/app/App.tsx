@@ -44,7 +44,7 @@ const getMenuItems = (): SidemenuType["menuItems"] => {
 
 function App() {
   const menuItems = getMenuItems();
-  const {mailBoxId} = useParams();
+  const {tagId} = useParams();
   const dispatch = useDispatch();
   const loading = useSelector((state: RootState) => state.loading);
 
@@ -52,11 +52,11 @@ function App() {
     dispatch({type: sagaActions.FETCH_EMAIL});
   }, []);
 
-  if (mailBoxId === undefined) {
+  if (tagId === undefined) {
     return <Navigate to="/inbox" />;
   }
 
-  if (mailBoxId !== undefined && !validRoutes.includes(mailBoxId)) {
+  if (tagId !== undefined && !validRoutes.includes(tagId)) {
     return <Navigate to="/error" />;
   }
 

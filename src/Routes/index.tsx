@@ -10,11 +10,11 @@ const Routes = () => {
       element: <App />,
       children: [
         {
-          path: "/:mailBoxId",
+          path: "/:tagId",
           element: <MailListContainer />,
         },
         {
-          path: "/:mailBoxId/mail/:mailId",
+          path: "/:tagId/mail/:mailId",
           element: <MailContainer />,
         },
       ],

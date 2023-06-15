@@ -1,4 +1,4 @@
-import {createSlice, current} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {EmailType, ReduxStateType} from "./reduxState.type";
 
 const initialState: ReduxStateType = {
