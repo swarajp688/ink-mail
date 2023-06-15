@@ -1,6 +1,9 @@
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
 import {Navigate, Outlet, useParams} from "react-router";
 import Sidemenu from "../Components/Sidemenu";
 import {SidemenuType} from "../Components/sidemenu.types";
+import {sagaActions} from "../Redux/sagaActions";
 
 const getMenuItems = (): SidemenuType["menuItems"] => {
   return [
@@ -26,7 +29,12 @@ const getMenuItems = (): SidemenuType["menuItems"] => {
 function App() {
   const menuItems = getMenuItems();
   const {mailBoxId} = useParams();
-  console.log(mailBoxId);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({type: sagaActions.FETCH_EMAIL});
+  }, []);
+
   if (mailBoxId === undefined) {
     return <Navigate to={"/inbox"} />;
   }
