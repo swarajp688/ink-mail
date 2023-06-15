@@ -15,11 +15,11 @@ const emailSlice = createSlice({
       state.emails = action.payload;
     },
     setVisibleEmails: (state, action) => {
-      if (action.payload === "all") {
+      if (action.payload.tag === "all") {
         state.visibleEmails = state.emails;
       } else {
         const filteredData = state.emails.filter(
-          (email) => email.tag === action.payload,
+          (email) => email.tag === action.payload.tag,
         );
         state.visibleEmails = filteredData;
       }

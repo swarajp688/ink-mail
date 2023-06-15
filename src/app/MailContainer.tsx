@@ -11,7 +11,7 @@ const MailContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setVisibleEmails(mailBoxId));
+    dispatch(setVisibleEmails({tag: mailBoxId}));
   }, [mailBoxId, emails]);
 
   return (
