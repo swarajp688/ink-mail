@@ -7,7 +7,7 @@ import {sagaActions} from "../Redux/sagaActions";
 import {FiInbox} from "react-icons/fi";
 import {BsTrash} from "react-icons/bs";
 import {RiSpam2Line} from "react-icons/ri";
-import {MdOutlineDrafts} from "react-icons/md";
+import {MdOutlineDrafts, MdOutlineMarkEmailRead} from "react-icons/md";
 
 const getMenuItems = (): SidemenuType["menuItems"] => {
   return [
@@ -20,6 +20,11 @@ const getMenuItems = (): SidemenuType["menuItems"] => {
       id: "/draft",
       name: "Draft",
       Icon: <MdOutlineDrafts />,
+    },
+    {
+      id: "/all",
+      name: "All",
+      Icon: <MdOutlineMarkEmailRead />,
     },
     {
       id: "/spam",
@@ -44,7 +49,7 @@ function App() {
   }, []);
 
   if (mailBoxId === undefined) {
-    return <Navigate to={"/inbox"} />;
+    return <Navigate to="/inbox" />;
   }
 
   return (
