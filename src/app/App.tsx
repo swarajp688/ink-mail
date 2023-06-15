@@ -4,24 +4,32 @@ import {Navigate, Outlet, useParams} from "react-router";
 import Sidemenu from "../Components/Sidemenu";
 import {SidemenuType} from "../Components/sidemenu.types";
 import {sagaActions} from "../Redux/sagaActions";
+import {FiInbox} from "react-icons/fi";
+import {BsTrash} from "react-icons/bs";
+import {RiSpam2Line} from "react-icons/ri";
+import {MdOutlineDrafts} from "react-icons/md";
 
 const getMenuItems = (): SidemenuType["menuItems"] => {
   return [
     {
       id: "/inbox",
       name: "Inbox",
+      Icon: <FiInbox />,
     },
     {
-      id: "/primary",
-      name: "Primary",
+      id: "/draft",
+      name: "Draft",
+      Icon: <MdOutlineDrafts />,
     },
     {
       id: "/spam",
       name: "Spam",
+      Icon: <RiSpam2Line />,
     },
     {
-      id: "/bin",
-      name: "Bin",
+      id: "/trash",
+      name: "Trash",
+      Icon: <BsTrash />,
     },
   ];
 };

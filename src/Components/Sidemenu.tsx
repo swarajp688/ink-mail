@@ -1,4 +1,4 @@
-import {PropsWithChildren} from "react";
+import React, {PropsWithChildren} from "react";
 import {SidemenuType} from "./sidemenu.types";
 import {GiHamburgerMenu} from "react-icons/gi";
 import {NavLink} from "react-router-dom";
@@ -41,7 +41,10 @@ const SidemenuList = ({menuItems}: SidemenuType) => {
             to={item.id}
             key={item.id}
           >
-            {item.name}
+            <div className="flex items-center space-x-8">
+              {React.cloneElement(item.Icon)}
+              <span>{item.name}</span>
+            </div>
           </NavLink>
         ))}
       </ul>
