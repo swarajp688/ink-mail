@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, current} from "@reduxjs/toolkit";
 import {EmailType, ReduxStateType} from "./reduxState.type";
 
 const initialState: ReduxStateType = {
@@ -16,12 +16,18 @@ const emailSlice = createSlice({
     },
     setVisibleEmails: (state, action) => {
       if (action.payload.tag === "all") {
-        state.visibleEmails = state.emails;
+        state.visibleEmails = [...state.emails];
       } else {
-        const filteredData = state.emails.filter(
+        state.visibleEmails = [...state.emails].filter(
           (email) => email.tag === action.payload.tag,
         );
-        state.visibleEmails = filteredData;
+      }
+      if (action.payload.query) {
+        state.visibleEmails = [...state.visibleEmails].filter(
+          (email) =>
+            email.body.includes(action.payload.query) ||
+            email.subject.includes(action.payload.query),
+        );
       }
     },
     setLoading: (state, action) => {
