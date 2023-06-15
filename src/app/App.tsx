@@ -8,6 +8,7 @@ import {FiInbox} from "react-icons/fi";
 import {BsTrash} from "react-icons/bs";
 import {RiSpam2Line} from "react-icons/ri";
 import {MdOutlineDrafts, MdOutlineMarkEmailRead} from "react-icons/md";
+import {validRoutes} from "../Routes/validRoutes";
 
 const getMenuItems = (): SidemenuType["menuItems"] => {
   return [
@@ -50,6 +51,10 @@ function App() {
 
   if (mailBoxId === undefined) {
     return <Navigate to="/inbox" />;
+  }
+
+  if (mailBoxId !== undefined && !validRoutes.includes(mailBoxId)) {
+    return <Navigate to="/error" />;
   }
 
   return (
